@@ -1,6 +1,6 @@
 <h1>Friend Finder</h1>
 
-Live version: https://dashboard.heroku.com/apps/mighty-bayou-77781
+Live version: https://dave-friend-finder.herokuapp.com
 <hr></hr>
 
 Author: David Levens
