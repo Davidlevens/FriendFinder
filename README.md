@@ -3,14 +3,14 @@
 Live version: https://fathomless-beyond-86927.herokuapp.com/
 <hr></hr>
 
-Author: Michael Benefiel
+Author: David Levens
 
 Feel free to use some or all of this code if you're trying to complete a similar project.
 <hr></hr>
 
 <h3> App screenshot </h3>
 
-![alt text](https://raw.githubusercontent.com/mjbenefiel/FriendFinder/master/app/img/friendfinderdemo.jpg "Friend Finder")
+![alt text](https://raw.githubusercontent.com/Davidlevens/FriendFinder/master/app/img/friendfinderdemo.jpg "Friend Finder")
 
 <h2> Project overview</h2>
 Friend Finder is a full-stack web application implemented using Node.js and Express on the back end, and Materialize on the front end. It's deployed to Heroku. Friend Finder is basically a simple dating app that takes in user responses and matches their results to their closest match.
