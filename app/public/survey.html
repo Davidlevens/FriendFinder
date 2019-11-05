@@ -2,12 +2,18 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel='icon' href="/app/img/favicon-FF.ico" type="image/x-icon">
+
     <title>Friend Finder</title>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
     <script src="https://use.fontawesome.com/61ff38bb78.js"></script>
-    
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -44,16 +50,16 @@
                             <i class="material-icons">account_circle</i>
                             <h6 class="surveySays">Name (Required)</h6>
 
-                            <input type="text" class="validate" placeholder="Your Name Here" id="userName" data-error="Please enter your name"
-                                required="required" aria-required="true">
+                            <input type="text" class="validate" placeholder="Your Name Here" id="userName"
+                                data-error="Please enter your name" required="required" aria-required="true">
 
                         </div>
 
                         <div class="input-field col s10">
                             <i class="material-icons">picture_in_picture</i>
                             <h6 class="surveySays">Link to Photo Image (Required)</h6>
-                            <input type="text" class="validate" placeholder="Photo Link Here" id="userPhoto" data-error="Please enter image link"
-                                required="required" aria-required="true">
+                            <input type="text" class="validate" placeholder="Photo Link Here" id="userPhoto"
+                                data-error="Please enter image link" required="required" aria-required="true">
                         </div>
                         <!-- Survey Questions -->
                         <div class="input-field col s10">
@@ -190,7 +196,8 @@
 
                         <!-- Survey Submit Button -->
                         <div>
-                            <button class="btn waves-effect red accent-2" type="submit" name="action" id="submitButton">Submit
+                            <button class="btn waves-effect red accent-2" type="submit" name="action"
+                                id="submitButton">Submit
                                 Responses
                                 <i class="material-icons right">send</i>
                             </button>
@@ -209,7 +216,8 @@
                     <a class="grey-text text-lighten-3" id="api-link" target="_blank" href="./home.html">Home</a>
                     <a class="grey-text text-lighten-3" id="api-link" target="_blank" href="/api/friends">API Friends
                         List</a>
-                    <a class="grey-text text-lighten-3" id="repo-link" target="_blank" href="https://github.com/mjbenefiel/friendfinder">GitHub
+                    <a class="grey-text text-lighten-3" id="repo-link" target="_blank"
+                        href="https://github.com/mjbenefiel/friendfinder">GitHub
                         Repo</a>
                 </ul>
 
@@ -232,7 +240,7 @@
     </div>
 
     <script type="text/javascript">
-       // Or with jQuery
+        // Or with jQuery
         $(document).ready(function () {
             $('select').formSelect();
         });
@@ -277,10 +285,10 @@
                     ]
                 };
                 var currentURL = window.location.origin;
-               
+
                 // Add user inputs to friends list
                 $.post(currentURL + '/api/friends', userInput, function (data) {
-                   
+
                     // Set the name and image values of friend match
                     $('#userMatch').html(data.matchName);
                     $("#userMatchImage").attr("src", data.matchImage);
