@@ -1,12 +1,16 @@
-var path = require("path");
+const path = require('path');
+const mysql = require("mysql");
 
-module.exports = function(app){
-// HTML : Basic route that sends the user first to the AJAX Page
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "/../public/home.html"));
-});
+// This is for the MySQL connection
+// const connection = require("../routing/connection.js");
 
-app.get("/survey", function(req, res) {
-  res.sendFile(path.join(__dirname, "/../public/survey.html"));
-});
+module.exports = (app) => {
+	
+	app.get('/', (req, res) => {
+		res.sendFile(path.join(__dirname, '../public/home.html'));
+	});
+
+	app.get('/survey', (req, res) => {
+		res.sendFile(path.join(__dirname, '../public/survey.html'));
+	});
 };

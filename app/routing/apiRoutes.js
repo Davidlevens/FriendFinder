@@ -1,37 +1,44 @@
-var friendsList = require("../data/friends");
+const path = require('path');
+// const connection = require("../routing/connection.js");
 
-module.exports = function(app){
-	app.get("api/friends", function(req, res){
-		res.json(friendsList);
-	})
+let friends = require('../data/friends.js');
 
-// Create New Characters - takes in JSON input
-app.post("/api/friends", function(req, res) {
-	var newFriend = req.body;
-	var newScore = 0;
-	var total = 0;
-	var match = {
-		name: "",
-		photo: "",
-		difference: 10000
-	}
+// Export API routes
+module.exports = (app) => {
+	
+	app.get('/api/friends', (req, res) => {
+		res.json(friends);
+	});
 
-	// Calculating totals 
-	for (var i = 0; i < friendsList.length; i++) {
-		total = 0;
+	// Add new friend entry
+	app.post('/api/friends', (req, res) => {
+		let input = req.body;
+	
+		let responses = input.scores;
+	
+		// Compute bff match
+		let matchName = '';
+		let matchImage = '';
+		let difference = 10000; // Make the initial value large for comparison
 
-		for (var j = 0; j < friendsList[i].preferences.length; j++) {
-			total += Math.abs(friendsList[i].preferences[j] - newFriend.preferences[j]);
-
-			if (total <= match.difference) {
-				match.name = friendsList[i].name,
-				match.photo = friendsList[i].photo,
-				match.difference = total
+		for (var i in friends) {
+	
+			let diff = 0;
+			for (var j in responses) {
+				diff += Math.abs(friends[i].scores[j] - responses[j]);
 			}
-    	}
-    }
-    friendsList.push(newFriend);
-    res.json(match);
-    console.log(match);
-});
-}
+					// If lowest difference, record friend match
+			if (diff < difference) {
+		
+				difference = diff;
+				matchName = friends[i].name;
+				matchImage = friends[i].photo;
+			}
+		}
+
+		friends.push(input);
+
+		// Send appropriate response
+		res.json({status: 'OK', matchName: matchName, matchImage: matchImage});
+	});
+};
