@@ -1,6 +1,6 @@
 <h1>Friend Finder</h1>
 
-Live version: https://fathomless-beyond-86927.herokuapp.com/
+Live version: https://dashboard.heroku.com/apps/mighty-bayou-77781
 <hr></hr>
 
 Author: David Levens
